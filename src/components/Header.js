@@ -1,9 +1,13 @@
 import React from 'react';
+import NavState from "../context/navState";
+import MainMenu from "./MainMenu";
 
 const Header = () => {
     return(
         <div>
-            Header
+            <NavState>
+                <MainMenu/>
+            </NavState>
         </div>
     );
 };

@@ -6,7 +6,7 @@ const MenuButton = styled.button`
   display: block;
   transform-origin: 16px 11px;
   float: left;
-  margin-right: 29px;
+  margin-right: 10px;
   outline: 0;
   border: 0;
   padding: 12px;
@@ -14,13 +14,9 @@ const MenuButton = styled.button`
 
   span {
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+    background-color: #636363;
   }
 
-  :focus {
-    border: medium none rgb(111, 255, 176);
-    box-shadow: rgb(111, 255, 176) 0 0 2px 2px;
-    outline: 0;
-  }
 
   :hover {
     span:nth-of-type(1) {
@@ -38,7 +34,7 @@ const MenuButton = styled.button`
 
   &.active {
     span:nth-of-type(1) {
-      transform: rotate(45deg) translate(10px, 10px);
+      transform: rotate(45deg) translate(9px, 10px);
       width: 40px;
     }
 
@@ -57,7 +53,7 @@ const MenuButton = styled.button`
 const Bar = styled.span`
   display: block;
   width: 40px;
-  height: 5px;
+  height: 4px;
   margin-bottom: 7px;
   background-color: #fff;
 `;
@@ -66,5 +62,20 @@ const HamburgerButton = () => {
     const { isMenuOpen, toggleMenuMode } = useContext(MenuContext);
     const clickHandler = () => {
         toggleMenuMode();
-    }
+    };
+
+    return(
+        <MenuButton
+            className={isMenuOpen ? 'active' : ''}
+            aria-label="Open main menu"
+            onClick={clickHandler}
+        >
+        <Bar />
+        <Bar />
+        <Bar />
+        </MenuButton>
+    );
 };
+
+export default HamburgerButton;
+
