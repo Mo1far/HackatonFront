@@ -5,6 +5,7 @@ import {AuthContext} from '../context/AuthContext'
 
 const LoginPage = () => {
     const auth = useContext(AuthContext);
+    const message = useMessage();
     const { loading, request, error, cleanError } = useHttp();
     const [form, setForm] = useState({
         email: "",
@@ -13,8 +14,6 @@ const LoginPage = () => {
         first_name: "",
         last_name: "",
     });
-
-    const message = useMessage();
 
     useEffect( () => {
         message(error);
